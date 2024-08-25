@@ -12,3 +12,5 @@ const server = http.createServer( (req,res)=>{
 
 
 })
+
+in the .env file there is a url called external database URL , if you are using your localdatabase it will contain the name,database password and 2-3 variables all added together with colons.
