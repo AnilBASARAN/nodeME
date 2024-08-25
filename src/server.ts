@@ -1,11 +1,14 @@
 import express from "express";
 import path from "path";
 import router from "./router";  // Import the router
-
+import morgan from 'morgan'
 const app = express();
 const port = 5002;
 
 app.use(express.static("static"));
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 
 // Correctly reference the 'index.html' in 'src/pages'
 app.get("/", (req, res) => {
