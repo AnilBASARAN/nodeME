@@ -10,6 +10,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
+// our custom middleware
+app.use((req,res,next)=>{
+  req.ssh_secret = "doggy"
+  next()
+})
+
 // Correctly reference the 'index.html' in 'src/pages'
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "pages/index.html"));

@@ -15,7 +15,7 @@ const router = Router()
  * Product
  */
 router.get("/product", (req, res) => {
-    res.json({ message: "product" });
+    res.json({ message: req.ssh_secret });
   });
   
   router.get("/product/:id", (req, res) => {});
