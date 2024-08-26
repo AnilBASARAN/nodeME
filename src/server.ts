@@ -2,6 +2,8 @@ import express from "express";
 import path from "path";
 import router from "./router";  // Import the router
 import morgan from 'morgan'
+import { protect } from "./modules/auth";
+
 const app = express();
 const port = 5002;
 
@@ -22,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // Tell your app to use the router
-app.use("/api", router); // This will add '/api' prefix to your routes
+app.use("/api",protect,router); // This will add '/api' prefix to your routes
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
