@@ -3,7 +3,6 @@ import { createJWT, hashPassword,comparePasswords } from "../modules/auth";
 
 export const createNewUser = async (req, res) => {
   const hash = await hashPassword(req.body.password);
-// check new user exists or not??
   const user = await prisma.user.create({
     data: {
       username: req.body.username,
